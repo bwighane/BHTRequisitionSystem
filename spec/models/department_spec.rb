@@ -5,4 +5,10 @@ RSpec.describe Department, :type => :model do
     department = create(:department)
     expect(department).to be_valid
   end
+
+  it "is invalid without name" do
+    department = create(:department)
+    department.name = nil
+    expect(department).to_not be_valid
+  end
 end
