@@ -14,6 +14,7 @@ FactoryBot.define do
     lastname { Faker::Name.last_name }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
-    role, department
+    role
+    department
   end
 end
