@@ -12,8 +12,12 @@ gem 'rails', '~> 5.1.6'
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+gem 'devise_token_auth'
+gem 'omniauth'
+gem 'rack-cors', :require => 'rack/cors'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -32,6 +36,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda'
+  gem 'mailcatcher'
 end
 
 group :development do
