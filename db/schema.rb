@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20181115105908) do
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "email", null: false
-    t.string "password", null: false
     t.bigint "role_id", null: false
     t.bigint "department_id", null: false
     t.text "tokens"

@@ -25,12 +25,6 @@ RSpec.describe User, :type => :model do
       expect(user).to_not be_valid
     end
 
-    it "is invalid without password" do
-      user = create(:user)
-      user.password = nil
-      expect(user).to_not be_valid
-    end
-
     it "is invalid without role_id" do
       user = create(:user)
       user.role_id = nil
