@@ -22,6 +22,10 @@ module Api
                 body = JSON.parse(response.body)
                 expect(body['id']).to eq(@user.id)
             end
+            it 'should delete a user' do
+                delete :destroy, params: { id: @user.id }
+                should respond_with 200
+            end
         end
     end
 end
