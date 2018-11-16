@@ -16,6 +16,11 @@ module Api
                     expect(body['firstname']).to eq('Lipnip')
                 end
             end
+            it 'should return the concerned user' do
+                get :show, params: { id: @user.id }
+                should respond_with 200
+                expect(body['id']).to eq(@user.id)
+            end
         end
     end
 end
