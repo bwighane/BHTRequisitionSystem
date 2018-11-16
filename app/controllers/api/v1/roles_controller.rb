@@ -3,6 +3,12 @@ module Api
   module V1
     class RolesController < ApplicationController
 
+      #fetch all roles
+      def index
+         roles = Role.order('created_at DESC')
+         render json: roles
+      end
+
       #Create new role
       def create 
         role = Role.new(role_params)
