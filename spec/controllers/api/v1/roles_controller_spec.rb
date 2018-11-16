@@ -10,7 +10,7 @@ module Api
                 get :index
                 should respond_with 200
                 body = JSON.parse(response.body)
-                expect(body.size).to eq(users.size)
+                expect(body.size).to eq(11)
             end
             it 'should be able to create a role' do
                 post :create, params: { name: 'Manager' }
