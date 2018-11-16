@@ -13,11 +13,8 @@ module Api
 
             private  
                 def user_params 
-                    #white listing user parameters
-                    params.permit(:firstname, :lastname, :email, :department_id, :password, :password_confirmation)
+                    params.permit(:firstname, :lastname, :email, :department_id, :role_id, :uid)
                 end
-
-            
         end
     end
 end
