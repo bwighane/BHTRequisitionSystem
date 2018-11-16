@@ -31,6 +31,13 @@ module Api
         render json: role
       end
 
+      #delete a particular role
+      def destroy
+        role = Role.find(params[:id])
+        role.destroy
+        render json: role 
+      end
+
       private 
         def role_params 
           #white list role params
