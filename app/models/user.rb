@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+        default_scope { where("void = 0") }
             # Include default devise modules.
             devise :database_authenticatable, :registerable,
                     :recoverable, :rememberable, :trackable, :validatable,

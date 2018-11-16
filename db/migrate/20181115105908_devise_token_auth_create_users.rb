@@ -46,6 +46,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.1]
 
       ## Tokens
       t.text :tokens
+      t.integer :void, null:false, default:0
 
       t.timestamps
     end
