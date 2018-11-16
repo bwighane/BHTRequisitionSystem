@@ -6,14 +6,14 @@ module Api
                 @user = create(:user)
             end
             context 'Updating a user' do
-                before(:each) do
-                    patch :update, params: { id: @user.id, user: @user }, format: :json
+                it 'should respond with status 200' do
+                    patch :update, params: { id: @user.id, firstname: @user.firstname }
+                    should respond_with 200
                 end
-                it { should respond_with 200 }
                 it 'should update the user\'s name' do
-                    @user.name = 'Joseph Eli Lipnip'
+                    patch :update, params: { id: @user.id, firstname: 'Lipnip' }
                     body = JSON.parse(response.body)
-                    expect(body['name']).to eq('Joseph Eli Lipnip')
+                    expect(body['firstname']).to eq('Lipnip')
                 end
             end
         end
