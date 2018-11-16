@@ -25,6 +25,12 @@ module Api
         end
       end
 
+      #return a particular role
+      def show 
+        role = Role.find(params[:id])
+        render json: role
+      end
+
       private 
         def role_params 
           #white list role params
