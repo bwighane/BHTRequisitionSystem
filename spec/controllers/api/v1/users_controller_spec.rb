@@ -5,23 +5,21 @@ module Api
             before(:each) do
                 @user = create(:user)
             end
-            context 'Updating a user' do
-                it 'should respond with status 200' do
-                    patch :update, params: { id: @user.id, firstname: @user.firstname }
-                    should respond_with 200
-                end
-                it 'should update the user\'s name' do
-                    patch :update, params: { id: @user.id, firstname: 'Lipnip' }
-                    body = JSON.parse(response.body)
-                    expect(body['firstname']).to eq('Lipnip')
-                end
+
+            it 'should update the user\'s name' do
+                patch :update, params: { id: @user.id, firstname: 'Lipnip' }
+                should respond_with 200
+                body = JSON.parse(response.body)
+                expect(body['firstname']).to eq('Lipnip')
             end
+
             it 'should return the concerned user' do
                 get :show, params: { id: @user.id }
                 should respond_with 200
                 body = JSON.parse(response.body)
                 expect(body['id']).to eq(@user.id)
             end
+
             it 'should delete a user' do
                 delete :destroy, params: { id: @user.id }
                 should respond_with 200
