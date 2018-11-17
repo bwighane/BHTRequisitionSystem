@@ -6,6 +6,14 @@ module Api
                 @user = create(:user)
             end
 
+            it 'should be able to fetch all users' do
+                users = create_list(:user, 10)
+                get :index
+                should respond_with 200
+                body = JSON.parse(response.body)
+                expect(body.size).to eq(11)
+            end
+
             it 'should update the user\'s name' do
                 patch :update, params: { id: @user.id, firstname: 'Lipnip' }
                 should respond_with 200
