@@ -19,8 +19,12 @@ module Api
             end
 
             def destroy
-                user = User.find(params[:id])
-                user.destroy
+                begin
+                    user = User.find(params[:id])
+                    user.update(void: 1)
+                rescue Exception => e
+                    render json: { error: e.to_s, message: 'An internal server error occured.' }, status: 500
+                end
                 render json: user 
             end
 

@@ -25,6 +25,8 @@ module Api
             it 'should delete a user' do
                 delete :destroy, params: { id: @user.id }
                 should respond_with 200
+                body = JSON.parse(response.body)
+                expect(body['void']).to eq(1)
             end
         end
     end
