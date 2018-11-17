@@ -2,6 +2,14 @@
 module Api 
     module V1
         class UsersController < ApplicationController
+            def index
+                begin
+                    users = User.all
+                rescue Exception => e
+                    render json: { error: e.to_s, message: 'An internal server error occured' }, status: 500
+                end
+                render json: users
+            end
             def update 
                 #updating user, OK
                 user = User.find(params[:id])
