@@ -14,6 +14,7 @@ module Api
       def create
         begin
           department = Department.new(department_params)
+          department.save
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
