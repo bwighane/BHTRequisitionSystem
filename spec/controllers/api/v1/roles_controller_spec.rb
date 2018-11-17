@@ -32,6 +32,8 @@ module Api
             it 'should be able to delete a role' do
                 delete :destroy, params: { id: @role.id }
                 should respond_with 200
+                body = JSON.parse(response.body)
+                expect(body['void']).to eq(1)
             end
         end
     end

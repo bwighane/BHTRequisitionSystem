@@ -33,8 +33,12 @@ module Api
 
       #delete a particular role
       def destroy
-        role = Role.find(params[:id])
-        role.destroy
+        begin
+          role = Role.find(params[:id])
+          role.update(void: 1)
+        rescue Exception => e
+          render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
+        end
         render json: role 
       end
 
