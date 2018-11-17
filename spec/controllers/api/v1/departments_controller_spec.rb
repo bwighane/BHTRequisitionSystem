@@ -13,7 +13,7 @@ module Api
                 expect(body.size).to eq(11)
             end
             it 'should be able to create a department' do
-                post :create, params: { name: 'Huma Resources' }
+                post :create, params: { name: 'Human Resources' }
                 should respond_with 200
                 body = JSON.parse(response.body)
                 expect(body['name']).to eq('Human Resources')
@@ -32,6 +32,8 @@ module Api
             it 'should be able to delete a department' do
                 delete :destroy, params: { id: @department.id }
                 should respond_with 200
+                body = JSON.parse(response.body)
+                expect(body['void']).to eq(1)
             end
         end
     end
