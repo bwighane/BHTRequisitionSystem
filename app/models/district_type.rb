@@ -1,0 +1,2 @@
+class DistrictType < ApplicationRecord
+end
