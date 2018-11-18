@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :users
       resources :roles
       resources :departments
+      resources :donors
       mount_devise_token_auth_for 'User', at: 'auth'
     end
   end
