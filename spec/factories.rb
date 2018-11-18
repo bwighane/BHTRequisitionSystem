@@ -1,9 +1,6 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :district_type do
-    name { "MyString" }
-  end
   factory :department do
     name { Faker::Company.industry }
   end
@@ -28,6 +25,11 @@ FactoryBot.define do
   factory :item do
     name { Faker::Commerce.product_name }
     cost { Faker::Commerce.price }
+    void { 0 }
+  end
+
+  factory :district_type do
+    name { Faker::Address.name }
     void { 0 }
   end
 end
