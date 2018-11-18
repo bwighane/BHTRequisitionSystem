@@ -1,6 +1,9 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :donor do
+    name { Faker::Company.name }
+  end
   factory :department do
     name { Faker::Company.industry }
   end
