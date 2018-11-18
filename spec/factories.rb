@@ -21,4 +21,10 @@ FactoryBot.define do
   factory :donor do
     name { Faker::Company.name }
   end
+
+  factory :item do
+    name { Faker::Commerce.product_name }
+    cost { Faker::Commerce.cost }
+    void { 0 }
+  end
 end
