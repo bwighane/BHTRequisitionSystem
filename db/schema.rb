@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181118172833) do
+ActiveRecord::Schema.define(version: 20181118173943) do
 
   create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name", null: false
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20181118172833) do
     t.integer "void", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "districts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string "name"
+    t.integer "void", default: 0, null: false
+    t.bigint "district_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["district_type_id"], name: "index_districts_on_district_type_id"
   end
 
   create_table "donors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
