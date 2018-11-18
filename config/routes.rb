@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :donors
       resources :items
       resources :district_types
+      resources :districts
       mount_devise_token_auth_for 'User', at: 'auth'
     end
   end
