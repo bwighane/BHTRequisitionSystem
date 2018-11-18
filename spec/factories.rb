@@ -29,12 +29,12 @@ FactoryBot.define do
   end
 
   factory :district_type do
-    name { Faker::Address.name }
+    name { Faker::Address.city }
     void { 0 }
   end
 
   factory :district do
-    name { Faker::Address.name }
+    name { Faker::Address.city }
     district_type
   end
 end
