@@ -32,4 +32,9 @@ FactoryBot.define do
     name { Faker::Address.name }
     void { 0 }
   end
+
+  factory :district do
+    name { Faker::Address.name }
+    district_type
+  end
 end
