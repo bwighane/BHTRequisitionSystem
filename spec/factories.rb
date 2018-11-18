@@ -24,7 +24,7 @@ FactoryBot.define do
 
   factory :item do
     name { Faker::Commerce.product_name }
-    cost { Faker::Commerce.cost }
+    cost { Faker::Commerce.price }
     void { 0 }
   end
 end
