@@ -1,11 +1,6 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :notification do
-    body { "MyString" }
-    path { "MyString" }
-  end
-
   factory :project do 
     name { Faker::Types.rb_string }
   end
@@ -56,4 +51,9 @@ FactoryBot.define do
     district_type
   end
 
+  factory :notification do
+    body { Faker::Types.rb_string }
+    path { Faker::Types.rb_string }
+    user
+  end
 end
