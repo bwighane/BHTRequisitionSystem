@@ -1,11 +1,20 @@
 require 'faker'
 
 FactoryBot.define do
+
+  factory :project do 
+    name { Faker::Types.rb_string }
+  end
+
+  factory :site do 
+    name { Faker::Types.rb_string }
+  end
   
   factory :project_site do
-    project { nil }
-    site { nil }
+    project 
+    site 
   end
+
   factory :department do
     name { Faker::Company.industry }
   end
@@ -43,11 +52,4 @@ FactoryBot.define do
     district_type
   end
 
-  factory :project do 
-    name { Faker::Types.rb_string}
-  end
-
-  factory :site do 
-    name { Faker::Types.rb_string}
-  end
 end
