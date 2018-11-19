@@ -1,12 +1,7 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :site do
-    
-  end
-  factory :project do
-    
-  end
+  
   factory :project_site do
     project { nil }
     site { nil }
@@ -46,5 +41,13 @@ FactoryBot.define do
   factory :district do
     name { Faker::Address.city }
     district_type
+  end
+
+  factory :project do 
+    name { Faker::Types.rb_string}
+  end
+
+  factory :site do 
+    name { Faker::Types.rb_string}
   end
 end
