@@ -3,11 +3,11 @@ require 'faker'
 FactoryBot.define do
 
   factory :project do 
-    name { Faker::Types.rb_string }
+    name { Faker::Company.industry }
   end
 
   factory :site do 
-    name { Faker::Types.rb_string }
+    name { Faker::Company.industry }
   end
   
   factory :project_site do
