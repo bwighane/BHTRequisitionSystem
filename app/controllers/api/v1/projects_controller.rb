@@ -19,8 +19,7 @@ module Api
                 render json: project
             rescue Exception => e
                 render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
-            end
-            
+            end    
         end
     
         def show
@@ -29,8 +28,7 @@ module Api
                 render json: project
             rescue Exception => e
                 render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
-            end
-            
+            end   
         end
     
         def update
@@ -40,8 +38,7 @@ module Api
                 render json: project
             rescue Exception => e
                 render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
-            end
-            
+            end   
         end
     
         def destroy

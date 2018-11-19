@@ -5,35 +5,40 @@ module Api
             def index
                 begin
                     users = User.all
+                    render json: users
                 rescue Exception => e
                     render json: { error: e.to_s, message: 'An internal server error occured' }, status: 500
                 end
-                render json: users
             end
-            def update 
-                #updating user, OK
-                user = User.find(params[:id])
-                if user.update_attributes(user_params)
-                   render json: user 
-                else
-                    render json: {status: 'ERROR', message: 'User Not Updated', data:user.errors}, status: :uprocessable_entity      
+
+            def show 
+                begin
+                    user = User.find(params[:id])
+                    render json: user
+                rescue Exception => e
+                    render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
+                end
+            end
+
+            def update
+                begin
+                    user = User.find(params[:id])
+                    user.update_attributes(user_params)
+                    render json: user
+                rescue Exception => e
+                    render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
                 end
             end
             
-            def show 
-                #returning concerned user
-                user = User.find(params[:id])
-                render json: user
-            end
-
             def destroy
                 begin
                     user = User.find(params[:id])
                     user.update(void: 1)
+                    render json: user 
                 rescue Exception => e
                     render json: { error: e.to_s, message: 'An internal server error occured.' }, status: 500
                 end
-                render json: user 
+                
             end
 
             private  

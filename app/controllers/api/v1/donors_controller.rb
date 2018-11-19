@@ -5,49 +5,49 @@ module Api
       def index
         begin
           donors = Donor.all
+          render json: donors
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: donors
       end
 
       def create
         begin
           donor = Donor.new(donor_params)
           donor.save
+          render json: donor
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: donor
       end
 
       def show
         begin
           donor = Donor.find(params[:id])
+          render json: donor
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: donor
       end
 
       def update
         begin
           donor = Donor.find(params[:id])
           donor.update_attributes(donor_params)
+          render json: donor
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: donor
       end
 
       def destroy
         begin
           donor = Donor.find(params[:id])
           donor.update(void: 1)
+          render json: donor
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: donor
       end
 
       private  

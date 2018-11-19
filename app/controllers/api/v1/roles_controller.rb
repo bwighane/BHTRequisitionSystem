@@ -3,43 +3,52 @@ module Api
   module V1
     class RolesController < ApplicationController
 
-      #fetch all roles
       def index
-         roles = Role.order('created_at DESC')
-         render json: roles
+        begin
+          roles = Role.all
+        render json: roles
+        rescue Exception => e
+          render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
+        end
       end
 
-      #Create new role
       def create 
-        role = Role.new(role_params)
-          if role.save 
-            render json: role 
-          end
-        end
-
-      #update role
-      def update 
-        role = Role.find(params[:id])
-        if role.update_attributes(role_params)
-            render json: role    
-        end
+        begin
+          role = Role.new(role_params)
+          role.save
+          render json: role
+        rescue Exception => e
+            render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
+        end 
       end
 
-      #return a particular role
       def show 
-        role = Role.find(params[:id])
-        render json: role
+        begin
+          role = Role.find(params[:id])
+          render json: role
+        rescue Exception => e
+            render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
+        end
       end
 
-      #delete a particular role
+      def update 
+        begin
+          role = Role.find(params[:id])
+          role.update_attributes(role_params)
+          render json: role
+        rescue Exception => e
+            render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
+        end 
+      end
+
       def destroy
         begin
           role = Role.find(params[:id])
           role.update(void: 1)
+          render json: role 
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: role 
       end
 
       private 

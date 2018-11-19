@@ -5,49 +5,49 @@ module Api
       def index
         begin
           districts = District.all
+          render json: districts
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: districts
       end
 
       def create
         begin
           district = District.new(district_params)
           district.save
+          render json: district
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: district
       end
 
       def show
         begin
           district = District.find(params[:id])
+          render json: district
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: district
       end
 
       def update
         begin
           district = District.find(params[:id])
           district.update_attributes(district_params)
+          render json: district
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: district
       end
 
       def destroy
         begin
           district = District.find(params[:id])
           district.update(void: 1)
+          render json: district
         rescue Exception => e
           render json: { error: e.to_s, message: 'An internal server error occured.'}, status: 500
         end
-        render json: district
       end
 
       private  
