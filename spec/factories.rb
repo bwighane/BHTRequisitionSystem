@@ -1,6 +1,10 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :notification do
+    body { "MyString" }
+    path { "MyString" }
+  end
 
   factory :project do 
     name { Faker::Types.rb_string }
