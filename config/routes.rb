@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :district_types
       resources :districts
       resources :sites
+      resources :projects
       mount_devise_token_auth_for 'User', at: 'auth'
     end
   end
