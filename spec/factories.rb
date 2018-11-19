@@ -1,6 +1,16 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :site do
+    
+  end
+  factory :project do
+    
+  end
+  factory :project_site do
+    project { nil }
+    site { nil }
+  end
   factory :department do
     name { Faker::Company.industry }
   end
